@@ -4,6 +4,8 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from './users/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
+import { RoadmapsModule } from './roadmaps/roadmaps.module';
+import { RoadmapEntity } from './roadmaps/entities/roadmap.entity';
 
 @Module({
   imports: [
@@ -15,11 +17,12 @@ import { AuthModule } from './auth/auth.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [UserEntity],
+      entities: [UserEntity, RoadmapEntity],
       synchronize: true,
     }),
     UsersModule,
     AuthModule,
+    RoadmapsModule,
   ],
 })
 export class AppModule {}
