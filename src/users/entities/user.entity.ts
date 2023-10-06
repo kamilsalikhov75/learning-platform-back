@@ -17,9 +17,9 @@ export class UserEntity {
   @Column()
   password: string;
 
-  @Column()
+  @Column({ nullable: true })
   github?: string;
 
-  @Column()
+  @Column({ nullable: true })
   telegram?: string;
 }
